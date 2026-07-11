@@ -1,0 +1,115 @@
+<!-- privacySettings.wxml -->
+<view class="page-container">
+  <!-- 数据隐私 -->
+  <view class="section data-privacy">
+    <view class="section-title">数据隐私</view>
+    
+    <view class="list-item" bindtap="viewPrivacyPolicy">
+      <view>
+        <text class="list-item-text">隐私政策</text>
+        <text class="list-item-desc">了解我们如何保护您的隐私</text>
+      </view>
+      <icon type="arrowright" size="20" color="#999" />
+    </view>
+    
+    <view class="list-item" bindtap="viewTermsOfService">
+      <view>
+        <text class="list-item-text">服务条款</text>
+        <text class="list-item-desc">了解我们的服务使用条款</text>
+      </view>
+      <icon type="arrowright" size="20" color="#999" />
+    </view>
+    
+    <view class="list-item">
+      <view>
+        <text class="list-item-text">个人数据收集</text>
+        <text class="list-item-desc">允许收集您的个人数据以提供服务</text>
+      </view>
+      <switch class="switch" checked="{{dataPrivacy.personalDataCollection}}" data-key="personalDataCollection" bindchange="toggleDataPrivacy" />
+    </view>
+    
+    <view class="list-item">
+      <view>
+        <text class="list-item-text">营销通讯</text>
+        <text class="list-item-desc">接收我们的营销信息和活动通知</text>
+      </view>
+      <switch class="switch" checked="{{dataPrivacy.marketingCommunications}}" data-key="marketingCommunications" bindchange="toggleDataPrivacy" />
+    </view>
+    
+    <view class="list-item" bindtap="exportPersonalData">
+      <view>
+        <text class="list-item-text">导出个人数据</text>
+        <text class="list-item-desc">获取您在我们平台的个人数据</text>
+      </view>
+      <icon type="arrowright" size="20" color="#999" />
+    </view>
+  </view>
+  
+  <!-- 权限管理 -->
+  <view class="section permission-management">
+    <view class="section-title">权限管理</view>
+    
+    <view class="list-item" bindtap="manageAppPermissions">
+      <view>
+        <text class="list-item-text">应用权限</text>
+        <text class="list-item-desc">管理应用的系统权限</text>
+      </view>
+      <icon type="arrowright" size="20" color="#999" />
+    </view>
+    
+    <view class="list-item">
+      <view>
+        <text class="list-item-text">位置信息</text>
+        <text class="list-item-desc">允许访问您的位置信息</text>
+      </view>
+      <switch class="switch" checked="{{permissions.location}}" data-key="location" bindchange="togglePermission" />
+    </view>
+    
+    <view class="list-item">
+      <view>
+        <text class="list-item-text">相机</text>
+        <text class="list-item-desc">允许访问您的相机</text>
+      </view>
+      <switch class="switch" checked="{{permissions.camera}}" data-key="camera" bindchange="togglePermission" />
+    </view>
+    
+    <view class="list-item">
+      <view>
+        <text class="list-item-text">相册</text>
+        <text class="list-item-desc">允许访问您的相册</text>
+      </view>
+      <switch class="switch" checked="{{permissions.album}}" data-key="album" bindchange="togglePermission" />
+    </view>
+  </view>
+  
+  <!-- 账号安全 -->
+  <view class="section account-security">
+    <view class="section-title">账号安全</view>
+    
+    <view class="list-item" bindtap="changePassword">
+      <view>
+        <text class="list-item-text">修改密码</text>
+        <text class="list-item-desc">更改您的账号密码</text>
+      </view>
+      <icon type="arrowright" size="20" color="#999" />
+    </view>
+    
+    <view class="list-item" bindtap="bindPhone">
+      <view>
+        <text class="list-item-text">绑定手机</text>
+        <text class="list-item-desc">绑定或修改手机号码</text>
+      </view>
+      <icon type="arrowright" size="20" color="#999" />
+    </view>
+    
+    <view class="list-item" bindtap="deleteAccount">
+      <view>
+        <text class="list-item-text delete-account-btn">删除账号</text>
+        <text class="list-item-desc">永久删除您的账号和所有数据</text>
+      </view>
+      <icon type="arrowright" size="20" color="#999" />
+    </view>
+  </view>
+  
+  <view class="bottom-spacing"></view>
+</view>

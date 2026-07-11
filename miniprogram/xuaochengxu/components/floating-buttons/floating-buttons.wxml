@@ -1,0 +1,48 @@
+<view class="floating-buttons">
+  <view 
+    wx:if="{{showGroupQrcode && groupQrcodeUrl}}" 
+    class="floating-btn floating-btn-group"
+    bindtap="showGroupQrcodeModal"
+  >
+    <text class="floating-icon">👥</text>
+  </view>
+  
+  <button 
+    wx:if="{{showWechatService}}" 
+    open-type="contact" 
+    class="floating-btn floating-btn-service"
+  >
+    <text class="floating-icon">💬</text>
+  </button>
+  
+  <button 
+    wx:if="{{showPhone}}" 
+    class="floating-btn floating-btn-phone"
+    bindtap="makePhoneCall"
+  >
+    <text class="floating-icon">📞</text>
+  </button>
+  
+  <view 
+    class="floating-btn floating-btn-top"
+    bindtap="backToTop"
+  >
+    <text class="floating-icon">↑</text>
+  </view>
+</view>
+
+<view wx:if="{{showModal}}" class="modal-overlay" bindtap="closeModal">
+  <view class="modal-content" catchtap="stopPropagation">
+    <view class="modal-header">
+      <text class="modal-title">👥 微信群二维码</text>
+      <text class="modal-close" bindtap="closeModal">✕</text>
+    </view>
+    <view class="modal-body">
+      <image src="{{groupQrcodeUrl}}" mode="aspectFit" class="qrcode-image" />
+      <text class="qrcode-tip">扫码加入微信群</text>
+    </view>
+    <view class="modal-footer">
+      <button class="modal-btn" bindtap="closeModal">知道了</button>
+    </view>
+  </view>
+</view>

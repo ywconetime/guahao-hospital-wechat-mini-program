@@ -1,0 +1,87 @@
+/* patientForm.wxss */
+.container {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  padding-bottom: 100rpx;
+}
+
+.header {
+  background-color: #1a73e8;
+  color: white;
+  padding: 40rpx 30rpx;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-title {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.form {
+  background-color: white;
+  margin: 20rpx;
+  padding: 30rpx;
+  border-radius: 10rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.form-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.label {
+  font-size: 30rpx;
+  color: #333;
+  width: 150rpx;
+}
+
+.input {
+  flex: 1;
+  height: 80rpx;
+  border: 1rpx solid #e0e0e0;
+  border-radius: 5rpx;
+  padding: 0 20rpx;
+  font-size: 30rpx;
+}
+
+.picker {
+  flex: 1;
+  height: 80rpx;
+  border: 1rpx solid #e0e0e0;
+  border-radius: 5rpx;
+  padding: 0 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.picker-text {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.gender-options {
+  display: flex;
+  gap: 40rpx;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+}
+
+.submit-btn {
+  margin: 30rpx;
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 10rpx;
+  padding: 30rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+}

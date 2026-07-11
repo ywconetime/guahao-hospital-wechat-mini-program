@@ -1,0 +1,83 @@
+<!-- my.wxml - 恢复版本 -->
+<view class="container">
+  <!-- 用户信息 -->
+  <view class="user-info" style="background-color: {{themeColor || '#007AFF'}};">
+    <image src="{{userInfo.avatarUrl || 'https://api.dicebear.com/7.x/avataaars/svg?seed=user&size=128&background=%23FF69B4'}}" mode="aspectFill" class="user-avatar" />
+    <view class="user-details">
+      <text class="user-name">{{userInfo.nickName || '未登录'}}</text>
+      <text class="user-phone">{{userInfo.phone || '请完善个人信息'}}</text>
+    </view>
+    <button wx:if="{{userInfo.nickName === '未登录'}}" open-type="getPhoneNumber" bindgetphonenumber="handleLogin" class="login-btn">登录</button>
+    <button wx:elif="{{!userInfo.phone}}" open-type="getPhoneNumber" bindgetphonenumber="bindPhoneNumber" class="login-btn">绑定手机号</button>
+  </view>
+  
+  <!-- 功能列表 -->
+  <view class="function-list">
+    <navigator url="/pages/appointmentList/appointmentList" class="function-item">
+      <view class="function-icon">
+        <text class="icon">📅</text>
+      </view>
+      <text class="function-text">我的预约</text>
+      <icon type="arrowright" size="20" color="#999" />
+    </navigator>
+    <navigator url="/pages/patient/patient" class="function-item">
+      <view class="function-icon">
+        <text class="icon">📋</text>
+      </view>
+      <text class="function-text">我的就诊人</text>
+      <icon type="arrowright" size="20" color="#999" />
+    </navigator>
+    <navigator url="/pages/notification/notification" class="function-item">
+      <view class="function-icon">
+        <text class="icon">🔔</text>
+      </view>
+      <text class="function-text">消息通知</text>
+      <icon type="arrowright" size="20" color="#999" />
+    </navigator>
+    <navigator url="/pages/settings/settings" class="function-item">
+      <view class="function-icon">
+        <text class="icon">⚙️</text>
+      </view>
+      <text class="function-text">设置</text>
+      <icon type="arrowright" size="20" color="#999" />
+    </navigator>
+    <navigator url="/pages/settings/settings" class="function-item">
+      <view class="function-icon">
+        <text class="icon">ℹ️</text>
+      </view>
+      <text class="function-text">关于我们</text>
+      <icon type="arrowright" size="20" color="#999" />
+    </navigator>
+  </view>
+  
+  <!-- 退出登录按钮 -->
+  <button wx:if="{{userInfo.nickName !== '未登录'}}" class="logout-btn" bindtap="logout">退出登录</button>
+  
+  <!-- 版权信息 -->
+  <view class="copyright">
+    <text>{{copyright}}</text>
+  </view>
+  
+  <!-- 登录授权弹窗 -->
+  <view wx:if="{{showLoginModal}}" class="login-modal-overlay">
+    <view class="login-modal">
+      <view class="login-modal-header">
+        <text class="login-modal-title">用户登录</text>
+        <text class="login-modal-desc">登录后可享受更多服务</text>
+      </view>
+      <view class="login-modal-avatar">
+        <text class="login-modal-avatar-icon">👤</text>
+      </view>
+      <view class="login-modal-permission">
+        <text class="login-modal-permission-title">申请获取以下权限</text>
+        <text class="login-modal-permission-desc">获取你的公开信息（手机）授权登录</text>
+      </view>
+      <button open-type="getPhoneNumber" bindgetphonenumber="handleLogin" class="login-modal-button" style="background: linear-gradient(135deg, {{themeColor || '#007AFF'}} 0%, {{themeColorDark || '#0056b3'}} 100%); box-shadow: 0 8rpx 24rpx rgba(0, 122, 255, 0.3);">
+        授权登录
+      </button>
+    </view>
+  </view>
+  
+  <!-- 漂浮按钮 -->
+  <floating-buttons />
+</view>

@@ -1,0 +1,138 @@
+/* appointmentList.wxss */
+.container {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  padding: 0;
+}
+
+/* 顶部标题 */
+.header {
+  background: #ffffff;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.header-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+/* 订单标签 */
+.order-tab {
+  background: #ffffff;
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #e0e0e0;
+}
+
+.tab-active {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 4rpx solid var(--primary-color);
+  padding-bottom: 10rpx;
+}
+
+/* 预约项 */
+.appointment-item {
+  background-color: #fff;
+  margin: 20rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 订单头部 */
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.order-id {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.order-status {
+  font-size: 24rpx;
+  color: #666;
+}
+
+/* 订单内容 */
+.order-body {
+  padding: 20rpx;
+}
+
+.order-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15rpx;
+  flex-wrap: wrap;
+}
+
+.info-label {
+  font-size: 26rpx;
+  color: #666;
+  margin-right: 10rpx;
+}
+
+.info-value {
+  font-size: 26rpx;
+  color: #333;
+  margin-right: 40rpx;
+}
+
+/* 订单底部 */
+.order-footer {
+  padding: 20rpx;
+  border-top: 1rpx solid #f0f0f0;
+  display: flex;
+  justify-content: center;
+}
+
+.detail-btn {
+  width: 200rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background-color: #f0f0f0;
+  color: #666;
+  border: none;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 200rpx 0;
+  background-color: #ffffff;
+  margin: 20rpx;
+  border-radius: 10rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.empty-text {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.empty-hint {
+  font-size: 24rpx;
+  color: #999;
+}

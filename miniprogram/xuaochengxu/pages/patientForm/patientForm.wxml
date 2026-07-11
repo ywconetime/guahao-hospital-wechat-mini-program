@@ -1,0 +1,41 @@
+<!-- patientForm.wxml -->
+<view class="container">
+  <view class="header" style="background-color: {{themeColor}};">
+    <text class="header-title">{{isEditing ? '编辑就诊人' : '添加就诊人'}}</text>
+  </view>
+  
+  <view class="form">
+    <view class="form-item">
+      <text class="label">姓名：</text>
+      <input class="input" placeholder="请输入姓名" value="{{patient.name}}" bindinput="bindNameInput" />
+    </view>
+    
+    <view class="form-item">
+      <text class="label">性别：</text>
+      <radio-group bindchange="bindGenderChange">
+        <view class="gender-options">
+          <label class="radio-label">
+            <radio value="男" checked="{{patient.gender === '男'}}" />
+            <text>男</text>
+          </label>
+          <label class="radio-label">
+            <radio value="女" checked="{{patient.gender === '女'}}" />
+            <text>女</text>
+          </label>
+        </view>
+      </radio-group>
+    </view>
+    
+    <view class="form-item">
+      <text class="label">年龄：</text>
+      <input class="input" placeholder="请输入年龄" value="{{patient.age}}" bindinput="bindAgeInput" type="number" />
+    </view>
+    
+    <view class="form-item">
+      <text class="label">手机号：</text>
+      <input class="input" placeholder="请输入手机号" value="{{patient.phone}}" bindinput="bindPhoneInput" type="number" />
+    </view>
+  </view>
+  
+  <button class="submit-btn" style="background-color: {{themeColor}};" bindtap="submitForm">{{isEditing ? '保存' : '添加'}}</button>
+</view>

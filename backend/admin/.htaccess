@@ -1,0 +1,4 @@
+# 允许访问admin目录
+Order allow,deny
+Allow from all
+Require all granted

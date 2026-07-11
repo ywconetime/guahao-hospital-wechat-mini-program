@@ -1,0 +1,43 @@
+<!-- appointmentList.wxml -->
+<view class="container">
+  <view class="header">
+    <text class="header-title">挂号记录</text>
+  </view>
+  
+  <view class="order-tab">
+    <text class="tab-active" style="border-bottom: 4rpx solid {{themeColor}};">所有订单</text>
+  </view>
+  
+  <!-- 空状态提示 -->
+  <view wx:if="{{appointments.length === 0}}" class="empty-state">
+    <text class="empty-text">暂无预约记录</text>
+    <text class="empty-hint">您还没有预约挂号记录</text>
+  </view>
+  
+  <!-- 预约列表 -->
+  <view wx:else>
+    <view wx:for="{{appointments}}" wx:key="index" class="appointment-item">
+      <view class="order-header">
+        <text class="order-id">{{item.orderId}}</text>
+        <text class="order-status">{{item.status}}</text>
+      </view>
+      <view class="order-body">
+        <view class="order-info">
+          <text class="info-label">预约医生：</text>
+          <text class="info-value">{{item.doctorName}}</text>
+          <text class="info-label">预约日期：</text>
+          <text class="info-value">{{item.date}}</text>
+        </view>
+        <view class="order-info">
+          <text class="info-label">预约时段：</text>
+          <text class="info-value">{{item.timeSlot}}</text>
+          <text class="info-label">就诊人：</text>
+          <text class="info-value">{{item.patientName}}</text>
+        </view>
+      </view>
+      <view class="order-footer">
+        <button class="detail-btn" bindtap="viewDetail" data-id="{{item.id}}">查看详情</button>
+      </view>
+    </view>
+  </view>
+</view>

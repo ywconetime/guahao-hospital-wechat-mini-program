@@ -1,0 +1,18 @@
+<!-- pages/notification/notification.wxml -->
+<view class="container">
+  <view class="notification-list">
+    <view wx:for="{{notifications}}" wx:key="id" class="notification-item {{item.read ? 'read' : 'unread'}}">
+      <view class="notification-content">
+        <text class="notification-title">{{item.title}}</text>
+        <text class="notification-text">{{item.content}}</text>
+        <text class="notification-time">{{item.time}}</text>
+      </view>
+      <view wx:if="{{!item.read}}" class="unread-badge"></view>
+    </view>
+    
+    <view wx:if="{{notifications.length === 0}}" class="empty-state">
+      <text class="empty-icon">📭</text>
+      <text class="empty-text">暂无消息通知</text>
+    </view>
+  </view>
+</view>

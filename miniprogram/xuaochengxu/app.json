@@ -1,0 +1,65 @@
+{
+    "pages": [
+        "pages\/index\/index",
+        "pages\/addPatient\/addPatient",
+        "pages\/appointment\/appointment",
+        "pages\/doctor\/doctor",
+        "pages\/doctorDetail\/doctorDetail",
+        "pages\/appointmentForm\/appointmentForm",
+        "pages\/my\/my",
+        "pages\/appointmentList\/appointmentList",
+        "pages\/appointmentDetail\/appointmentDetail",
+        "pages\/search\/search",
+        "pages\/patient\/patient",
+        "pages\/patientForm\/patientForm",
+        "pages\/notification\/notification",
+        "pages\/settings\/settings",
+        "pages\/personalInfo\/personalInfo",
+        "pages\/notificationSettings\/notificationSettings",
+        "pages\/privacySettings\/privacySettings",
+        "pages\/webview\/webview"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#05a89d",
+        "navigationBarTextStyle": "white"
+    },
+    "tabBar": {
+        "custom": true,
+        "color": "#999",
+        "selectedColor": "#05a89d",
+        "backgroundColor": "#fff",
+        "borderStyle": "black",
+        "list": [
+            {
+                "pagePath": "pages\/index\/index",
+                "text": "首页",
+                "iconPath": "/images/home.png",
+                "selectedIconPath": "/images/home-active.png"
+            },
+            {
+                "pagePath": "pages\/appointment\/appointment",
+                "text": "预约挂号",
+                "iconPath": "/images/appointment.png",
+                "selectedIconPath": "/images/appointment-active.png"
+            },
+            {
+                "pagePath": "pages\/doctor\/doctor",
+                "text": "专家团队",
+                "iconPath": "/images/doctor.png",
+                "selectedIconPath": "/images/doctor-active.png"
+            },
+            {
+                "pagePath": "pages\/my\/my",
+                "text": "我的",
+                "iconPath": "/images/my.png",
+                "selectedIconPath": "/images/my-active.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 10000,
+        "downloadFile": 10000
+    },
+    "sitemapLocation": "sitemap.json"
+}

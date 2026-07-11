@@ -1,0 +1,60 @@
+<!-- notificationSettings.wxml -->
+<view class="container">
+  <view class="header" style="background-color: {{themeColor}};">
+    <text class="title">通知设置</text>
+  </view>
+  
+  <view class="settings-section">
+    <view class="section-title">通知提醒</view>
+    
+    <view class="setting-item">
+      <text class="setting-label">预约状态变更通知</text>
+      <switch checked="{{notificationSettings.appointmentStatus}}" bindchange="onAppointmentStatusChange" />
+    </view>
+    
+    <view class="setting-item">
+      <text class="setting-label">医生回复通知</text>
+      <switch checked="{{notificationSettings.doctorReply}}" bindchange="onDoctorReplyChange" />
+    </view>
+    
+    <view class="setting-item">
+      <text class="setting-label">系统通知</text>
+      <switch checked="{{notificationSettings.system}}" bindchange="onSystemChange" />
+    </view>
+    
+    <view class="setting-item">
+      <text class="setting-label">活动通知</text>
+      <switch checked="{{notificationSettings.promotion}}" bindchange="onPromotionChange" />
+    </view>
+  </view>
+  
+  <view class="settings-section">
+    <view class="section-title">通知方式</view>
+    
+    <view class="setting-item">
+      <text class="setting-label">小程序通知</text>
+      <switch checked="{{notificationSettings.miniprogram}}" bindchange="onMiniprogramChange" />
+    </view>
+    
+    <view class="setting-item">
+      <text class="setting-label">短信通知</text>
+      <switch checked="{{notificationSettings.sms}}" bindchange="onSmsChange" />
+    </view>
+  </view>
+  
+  <view class="settings-section">
+    <view class="section-title">通知管理</view>
+    
+    <view class="setting-item" bindtap="clearAllNotifications">
+      <text class="setting-label">清空所有通知</text>
+      <icon type="arrowright" size="20" color="#999" />
+    </view>
+    
+    <view class="setting-item" bindtap="viewNotificationHistory">
+      <text class="setting-label">查看通知历史</text>
+      <icon type="arrowright" size="20" color="#999" />
+    </view>
+  </view>
+  
+  <button class="save-btn" style="background-color: {{themeColor}};" bindtap="saveSettings">保存设置</button>
+</view>

@@ -1,0 +1,31 @@
+<!-- patient.wxml -->
+<view class="container">
+  <view class="header" style="background-color: {{themeColor}};">
+    <text class="header-title">我的就诊人</text>
+  </view>
+  
+  <!-- 空状态提示 -->
+  <view wx:if="{{patients.length === 0}}" class="empty-state">
+    <text class="empty-text">暂无就诊人</text>
+    <text class="empty-hint">您还没有添加就诊人</text>
+  </view>
+  
+  <!-- 就诊人列表 -->
+  <view wx:else>
+    <view wx:for="{{patients}}" wx:key="index" class="patient-item">
+      <view class="patient-info">
+        <text class="patient-name">{{item.name}}</text>
+        <text class="patient-gender">{{item.gender}}</text>
+        <text class="patient-age">{{item.age}}岁</text>
+      </view>
+      <view class="patient-phone">{{item.phone}}</view>
+      <view class="patient-actions">
+        <button class="edit-btn" bindtap="editPatient" data-id="{{item.id}}">编辑</button>
+        <button class="delete-btn" bindtap="deletePatient" data-id="{{item.id}}">删除</button>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 添加就诊人按钮 -->
+  <button class="add-btn" style="background-color: {{themeColor}}; box-shadow: 0 4rpx 12rpx rgba(0, 122, 255, 0.4);" bindtap="addPatient">+ 添加就诊人</button>
+</view>

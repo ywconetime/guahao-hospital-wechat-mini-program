@@ -1,0 +1,83 @@
+<!--pages/doctor/doctor.wxml-->
+<view class="container">
+
+  <!-- 搜索框 -->
+  <view class="search-container">
+    <view class="search-bar">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+      </svg>
+      <input type="text" placeholder="请输入查询医生" class="search-input" bindinput="onSearchInput" value="{{searchKeyword}}" bindconfirm="onSearch" />
+      <button class="search-btn" bindtap="onSearch">
+        <text class="search-icon">🔍</text>
+      </button>
+    </view>
+  </view>
+
+  <!-- 医生列表 -->
+  <view class="doctor-list">
+    <!-- 医生项 -->
+    <view class="doctor-card" wx:for="{{doctors}}" wx:key="index">
+      <view class="doctor-info-container" bindtap="navigateToDoctorDetail" data-index="{{index}}">
+        <view class="doctor-avatar-container">
+          <image src="{{item.avatar}}" class="doctor-avatar" />
+        </view>
+        <view class="doctor-info">
+          <view class="doctor-header">
+            <view class="doctor-name">{{item.name}}</view>
+            <button class="appointment-btn" style="background-color: {{themeColor}};" bindtap="navigateToAppointment" data-index="{{index}}">
+              预约
+            </button>
+          </view>
+          <view class="doctor-title">{{item.title}}</view>
+          <view class="doctor-credentials">{{item.credentials}}</view>
+        </view>
+      </view>
+      <view class="specialty-section" bindtap="toggleExpand" data-index="{{index}}">
+        <text class="specialty-label" style="color: {{themeColor}};">[擅长]</text>
+        <text class="specialty-content {{item.expanded ? 'expanded' : 'collapsed'}}">{{item.specialty}}</text>
+        <text class="expand-btn" style="color: {{themeColor}};">{{item.expanded ? '▲' : '▼'}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 版权信息 -->
+  <view class="copyright">
+    <text>{{copyright}}</text>
+  </view>
+  
+  <!-- 登录授权弹窗 -->
+  <view wx:if="{{showLoginModal}}" class="login-modal-overlay">
+    <view class="login-modal">
+      <view class="login-modal-header">
+        <text class="login-modal-title">用户登录</text>
+        <text class="login-modal-desc">登录后可享受更多服务</text>
+      </view>
+      <view class="login-modal-avatar">
+        <text class="login-modal-avatar-icon">👤</text>
+      </view>
+      <view class="login-modal-permission">
+        <text class="login-modal-permission-title">申请获取以下权限</text>
+        <text class="login-modal-permission-desc">获取你的公开信息（手机）授权登录</text>
+      </view>
+      <button open-type="getPhoneNumber" bindgetphonenumber="handleLogin" class="login-modal-button" style="background-color:{{themeColor}}">
+        授权登录
+      </button>
+    </view>
+  </view>
+  
+  <!-- 就诊人提示弹窗 -->
+  <view wx:if="{{showPatientModal}}" class="patient-modal-overlay">
+    <view class="patient-modal">
+      <view class="patient-modal-icon">⚠️</view>
+      <text class="patient-modal-title">提示</text>
+      <text class="patient-modal-desc">请先添加就诊人信息</text>
+      <button bindtap="goToAddPatient" class="patient-modal-button" style="background-color:{{themeColor}}">
+        确定
+      </button>
+    </view>
+  </view>
+  
+  <!-- 漂浮按钮 -->
+  <floating-buttons />
+</view>

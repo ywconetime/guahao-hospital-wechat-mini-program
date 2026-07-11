@@ -1,0 +1,37 @@
+<!-- settings.wxml -->
+<view class="container">
+  <view class="header" style="background-color: {{themeColor}};">
+    <text class="title">设置</text>
+  </view>
+  
+  <view class="setting-list">
+    <view class="setting-item" bindtap="handlePersonalInfo">
+      <text class="setting-label">个人信息</text>
+      <icon type="arrowright" size="20" color="#999" />
+    </view>
+    <view class="setting-item" bindtap="handleNotificationSettings">
+      <text class="setting-label">通知设置</text>
+      <icon type="arrowright" size="20" color="#999" />
+    </view>
+    <view class="setting-item" bindtap="handlePrivacySettings">
+      <text class="setting-label">隐私设置</text>
+      <icon type="arrowright" size="20" color="#999" />
+    </view>
+    <view class="setting-item" bindtap="handleClearCache">
+      <text class="setting-label">清除缓存</text>
+      <text class="setting-value">{{cacheSize}}</text>
+    </view>
+    <view class="setting-item" bindtap="handleCheckUpdate">
+      <text class="setting-label">检查更新</text>
+      <text class="setting-value">v1.0.0</text>
+    </view>
+  </view>
+  
+  <view class="about-section">
+    <text class="about-title">关于我们</text>
+    <view class="about-content">
+      <text>本小程序提供便捷的在线预约挂号服务，为您的健康保驾护航。</text>
+    </view>
+    <text class="copyright">{{copyright}}</text>
+  </view>
+</view>

@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="form-item">
+    <text class="label">姓名：</text>
+    <input class="input" placeholder="请输入姓名" value="{{name}}" bindinput="bindNameInput" />
+  </view>
+  
+  <view class="form-item">
+    <text class="label">性别：</text>
+    <view class="gender-group">
+      <view class="gender-option" style="{{gender === '男' ? 'background-color:' + themeColor + ';color:#fff;border-color:' + themeColor : ''}}" bindtap="selectGender" data-gender="男">男</view>
+      <view class="gender-option" style="{{gender === '女' ? 'background-color:' + themeColor + ';color:#fff;border-color:' + themeColor : ''}}" bindtap="selectGender" data-gender="女">女</view>
+    </view>
+  </view>
+  
+  <view class="form-item">
+    <text class="label">年龄：</text>
+    <input class="input" placeholder="请输入年龄" value="{{age}}" bindinput="bindAgeInput" type="number" />
+  </view>
+  
+  <view class="form-item">
+    <text class="label">手机号：</text>
+    <input class="input" placeholder="请输入手机号" value="{{phone}}" bindinput="bindPhoneInput" type="number" maxlength="11" />
+  </view>
+  
+  <button class="submit-btn" bindtap="submitForm" style="background-color:{{themeColor}}">确定添加</button>
+</view>

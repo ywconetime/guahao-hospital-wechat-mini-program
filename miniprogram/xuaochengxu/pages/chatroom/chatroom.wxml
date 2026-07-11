@@ -1,0 +1,48 @@
+<view class="chatroom-container">
+  <view class="chatroom-header">
+    <view class="header-left" bindtap="goBack">
+      <text class="back-icon">←</text>
+    </view>
+    <view class="header-center">
+      <text class="chatroom-title">多人聊天室</text>
+      <text class="online-count">{{onlineCount}} 人在线</text>
+    </view>
+    <view class="header-right">
+      <text class="online-dot"></text>
+    </view>
+  </view>
+  
+  <scroll-view 
+    class="message-list" 
+    scroll-y 
+    scroll-into-view="{{scrollToId}}"
+    enhanced
+    show-scrollbar="false"
+  >
+    <view wx:for="{{messages}}" wx:key="id" id="msg-{{item.id}}" class="message-item">
+      <view class="message-avatar">{{item.nickname?.charAt(0) || '👤'}}</view>
+      <view class="message-content">
+        <view class="message-header">
+          <text class="message-nickname">{{item.nickname}}</text>
+          <text class="message-time">{{item.created_at}}</text>
+        </view>
+        <view class="message-bubble">{{item.content}}</view>
+      </view>
+    </view>
+    <view wx:if="{{messages.length === 0}}" class="empty-state">
+      <text class="empty-icon">💬</text>
+      <text class="empty-text">暂无消息，快来发第一条消息吧！</text>
+    </view>
+  </scroll-view>
+  
+  <view class="input-area">
+    <input 
+      class="message-input" 
+      placeholder="输入消息..." 
+      value="{{inputValue}}"
+      bindinput="onInput"
+      bindconfirm="sendMessage"
+    />
+    <button class="send-btn" bindtap="sendMessage">发送</button>
+  </view>
+</view>

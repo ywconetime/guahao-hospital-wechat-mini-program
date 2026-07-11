@@ -1,0 +1,75 @@
+/* 全局样式 */
+
+/* 主题颜色变量 */
+:root {
+  --primary-color: #007AFF;
+  --primary-light: #e6f7ff;
+  --primary-dark: #0056b3;
+}
+
+/* 动态主题颜色类 */
+.theme-primary {
+  color: var(--primary-color);
+}
+
+.theme-bg-primary {
+  background-color: var(--primary-color);
+}
+
+.theme-bg-primary-light {
+  background-color: var(--primary-light);
+}
+
+.theme-border-primary {
+  border-color: var(--primary-color);
+}
+
+/* 通用样式 */
+.container {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* 主按钮样式 */
+.primary-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.primary-button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 122, 255, 0.4);
+}
+
+/* 激活状态样式 */
+.active {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* 链接样式 */
+.link {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+/* 边框样式 */
+.border-primary {
+  border-color: var(--primary-color);
+}
+
+/* 背景色样式 */
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
+.bg-primary-light {
+  background-color: var(--primary-light);
+}

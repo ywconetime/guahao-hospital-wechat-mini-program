@@ -1,0 +1,68 @@
+<!-- appointmentDetail.wxml -->
+<view class="container">
+  <view class="header">
+    <text class="header-title">挂号详情</text>
+  </view>
+  
+  <view class="status-bar" style="background-color: {{themeColor}};">
+    <text class="status-text">{{appointment.status || '已预约,未就诊'}}</text>
+  </view>
+  
+  <!-- 预约信息 -->
+  <view class="section">
+    <text class="section-title" style="border-left: 4rpx solid {{themeColor}};">预约信息</text>
+    <view class="info-item">
+      <text class="label">医生姓名：</text>
+      <text class="value">{{appointment.doctorName}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">预约日期：</text>
+      <text class="value">{{appointment.date}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">预约时段：</text>
+      <text class="value">{{appointment.timeSlot}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">预约病种：</text>
+      <text class="value">{{appointment.diseaseName || '未设置'}}</text>
+    </view>
+  </view>
+  
+  <!-- 就诊人信息 -->
+  <view class="section">
+    <text class="section-title" style="border-left: 4rpx solid {{themeColor}};">就诊人信息</text>
+    <view class="info-item">
+      <text class="label">姓名：</text>
+      <text class="value">{{appointment.patientName}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">性别：</text>
+      <text class="value">{{appointment.patientGender}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">年龄：</text>
+      <text class="value">{{appointment.patientAge}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">手机号码：</text>
+      <text class="value">{{appointment.patientPhone}}</text>
+    </view>
+  </view>
+  
+  <!-- 订单信息 -->
+  <view class="section">
+    <text class="section-title" style="border-left: 4rpx solid {{themeColor}};">订单信息</text>
+    <view class="info-item">
+      <text class="label">订单编号：</text>
+      <text class="value">{{appointment.orderId}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">创建时间：</text>
+      <text class="value">{{appointment.createTime}}</text>
+    </view>
+  </view>
+  
+  <!-- 取消预约按钮 -->
+  <button class="cancel-btn" bindtap="cancelAppointment">取消预约</button>
+</view>

@@ -1,0 +1,211 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 业务域名加载中 - 全屏加载动画 -->
+  <view wx:if="{{hideAll}}" class="loading-fullscreen">
+    <view class="loading-spinner"></view>
+    <text class="loading-text">{{loadingMessage}}</text>
+  </view>
+
+  <!-- 未授权状态 - 全屏显示授权提醒 -->
+  <view wx:elif="{{showAuthBlock}}" class="auth-page">
+    <view class="auth-content">
+      <view class="auth-icon">🔒</view>
+      <text class="auth-title">系统未授权</text>
+      <text class="auth-message">{{authErrorMessage}}</text>
+      <text class="auth-tip">请联系管理员在后台进行授权</text>
+      <view class="auth-button" bindtap="refreshAuthStatus">
+        手动刷新
+      </view>
+      <text class="auth-footer">© 2026 医院预约挂号系统</text>
+    </view>
+  </view>
+  
+  <!-- 已授权状态 - 显示正常内容 -->
+  <view wx:else>
+    <!-- 搜索框 -->
+    <view class="search-box" bindtap="navigateToSearch">
+      <input type="text" placeholder="请输入查询医生" class="search-input" />
+      <icon type="search" size="20" color="#999" class="search-icon" />
+    </view>
+    
+    <!-- 轮播图 -->
+    <swiper indicator-dots="true" autoplay="true" interval="3000" duration="1000" class="swiper">
+      <swiper-item wx:for="{{carousel}}" wx:key="id" bindtap="onCarouselTap" data-item="{{item}}">
+        <image src="{{item.image_url}}" mode="aspectFill" class="swiper-img" />
+      </swiper-item>
+    </swiper>
+    
+    <!-- 功能入口 - 新布局 -->
+    <view class="function-cards">
+      <view class="function-cards-left">
+        <view class="function-card card-half" bindtap="navigateToAppointment" data-module="{{homeModules[0]}}">
+          <view class="card-content">
+            <view class="card-text">
+              <text class="card-title">{{homeModules[0].title || '预约挂号'}}</text>
+              <text class="card-subtitle">{{homeModules[0].subtitle || '线上预约，快速便捷'}}</text>
+            </view>
+            <view class="card-icon-wrapper">
+              <image wx:if="{{homeModules[0].icon}}" src="{{homeModules[0].icon}}" class="card-icon-img" mode="aspectFit"></image>
+              <image wx:else src="../../images/icon1.png" class="card-icon-img" mode="aspectFit"></image>
+            </view>
+          </view>
+        </view>
+        
+        <button open-type="contact" class="function-card card-half card-customer-service" wx:if="{{wechatCustomerService}}">
+          <view class="card-content">
+            <view class="card-text">
+              <text class="card-title">在线咨询</text>
+              <text class="card-subtitle">官方客服咨询</text>
+            </view>
+            <view class="card-icon-wrapper">
+              <text class="card-cs-icon">💬</text>
+            </view>
+          </view>
+        </button>
+      </view>
+      
+      <view class="function-cards-right">
+        <view class="function-card card-small card-my-appointment" bindtap="navigateToMyAppointment" data-module="{{homeModules[1]}}">
+          <view class="card-content-small">
+            <view class="card-text-small">
+              <text class="card-title-small">{{homeModules[1].title || '我的预约'}}</text>
+              <text class="card-subtitle-small">{{homeModules[1].subtitle || '查看个人预约'}}</text>
+            </view>
+            <view class="card-icon-wrapper-small">
+              <image wx:if="{{homeModules[1].icon}}" src="{{homeModules[1].icon}}" class="card-icon-img-small" mode="aspectFit"></image>
+              <image wx:else src="../../images/icon2.png" class="card-icon-img-small" mode="aspectFit"></image>
+            </view>
+          </view>
+        </view>
+        
+        <view class="function-card card-small card-expert-team" bindtap="navigateToDoctor" data-module="{{homeModules[2]}}">
+          <view class="card-content-small">
+            <view class="card-text-small">
+              <text class="card-title-small">{{homeModules[2].title || '专家团队'}}</text>
+              <text class="card-subtitle-small">{{homeModules[2].subtitle || '按医生预约挂号'}}</text>
+            </view>
+            <view class="card-icon-wrapper-small">
+              <image wx:if="{{homeModules[2].icon}}" src="{{homeModules[2].icon}}" class="card-icon-img-small" mode="aspectFit"></image>
+              <image wx:else src="../../images/icon3.png" class="card-icon-img-small" mode="aspectFit"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 科室和专病门诊 -->
+    <view class="section">
+      <view class="department-tab-container">
+        <view wx:for="{{departments}}" wx:key="id" class="department-tab {{selectedDepartmentId == item.id ? 'active' : ''}}" bindtap="selectDepartment" data-id="{{item.id}}" style="color: {{selectedDepartmentId == item.id ? themeColor : '#333'}}">
+          <text>{{item.name}}</text>
+        </view>
+      </view>
+      
+      <view class="disease-grid" wx:if="{{selectedDepartmentId || departments.length > 0}}">
+        <view wx:for="{{departmentDiseases}}" wx:key="id" class="disease-item" bindtap="navigateToDiseaseDoctors" data-id="{{item.id}}" data-department-id="{{selectedDepartmentId}}">
+          <view class="disease-icon">
+            <image src="{{item.icon || '/images/no-results.png'}}"></image>
+          </view>
+          <text class="disease-text">{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 医生推荐 -->
+    <view class="section">
+      <view class="section-header">
+        <text class="section-title">医生推荐</text>
+        <view class="more" style="color: {{themeColor}};" bindtap="navigateToDoctor">更多</view>
+      </view>
+      <view class="doctor-list">
+        <view wx:for="{{doctors}}" wx:key="id" class="doctor-item" bindtap="navigateToDoctorDetail" data-id="{{item.id}}">
+          <image src="{{item.avatar}}" mode="aspectFill" class="doctor-avatar" />
+          <view class="doctor-info">
+            <text class="doctor-name">{{item.name}}</text>
+            <text class="doctor-title">{{item.title}}</text>
+            <text class="doctor-desc">{{item.description}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 版权信息 -->
+    <view class="copyright">
+      <text>{{copyright}}</text>
+    </view>
+    
+    <!-- 登录授权弹窗 -->
+    <view wx:if="{{showLoginModal}}" class="login-modal-overlay" style="background-color: rgba(0, 0, 0, 0.5);">
+      <view class="login-modal">
+        <view class="login-modal-header">
+          <text class="login-modal-title">用户登录</text>
+          <text class="login-modal-desc">登录后可享受更多服务</text>
+        </view>
+        <view class="login-modal-avatar">
+          <text class="login-modal-avatar-icon">👤</text>
+        </view>
+        <view class="login-modal-permission">
+          <text class="login-modal-permission-title">申请获取以下权限</text>
+          <text class="login-modal-permission-desc">获取你的公开信息（手机）授权登录</text>
+        </view>
+        <button open-type="getPhoneNumber" bindgetphonenumber="handleLogin" class="login-modal-button" style="background-color:{{themeColor}}">
+          授权登录
+        </button>
+      </view>
+    </view>
+    
+    <!-- 就诊人提示弹窗 -->
+    <view wx:if="{{showPatientModal}}" class="patient-modal-overlay">
+      <view class="patient-modal">
+        <view class="patient-modal-icon">⚠️</view>
+        <text class="patient-modal-title">提示</text>
+        <text class="patient-modal-desc">请先添加就诊人信息</text>
+        <button bindtap="goToAddPatient" class="patient-modal-button">
+          确定
+        </button>
+      </view>
+    </view>
+    
+    <!-- 通知弹窗 -->
+    <view wx:if="{{showNotificationModal}}" class="notification-modal-overlay">
+      <view class="notification-modal">
+        <view class="notification-modal-header">
+          <text class="notification-modal-title">{{notificationData.title}}</text>
+          <text class="notification-modal-close" bindtap="closeNotification">✕</text>
+        </view>
+        
+        <view class="notification-modal-body">
+          <!-- 通知内容 -->
+          <view class="notification-content">
+            <rich-text nodes="{{notificationData.content}}"></rich-text>
+          </view>
+          
+          <!-- 附件列表 -->
+          <view wx:if="{{notificationAttachments.length > 0}}" class="notification-attachments">
+            <view class="attachments-title">📎 附件</view>
+            <view class="attachments-list">
+              <view wx:for="{{notificationAttachments}}" wx:key="id" class="attachment-item" bindtap="previewAttachment" data-url="{{item.file_url}}" data-name="{{item.file_name}}">
+                <text class="attachment-icon">📄</text>
+                <text class="attachment-name">{{item.file_name}}</text>
+              </view>
+            </view>
+          </view>
+          
+          <!-- 下载按钮 -->
+          <view wx:if="{{notificationData.download_url}}" class="notification-download">
+            <button class="download-button" bindtap="openDownloadUrl">
+              📥 立即下载
+            </button>
+          </view>
+        </view>
+        
+        <view class="notification-modal-footer">
+          <button class="notification-close-btn" bindtap="closeNotification">我知道了</button>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 漂浮按钮组件 -->
+    <floating-buttons />
+  </view>
+</view>

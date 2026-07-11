@@ -1,0 +1,146 @@
+<!-- appointmentForm.wxml -->
+<view class="container">
+  <view class="header" style="border-left: 8rpx solid {{themeColor}};">
+    <text class="header-title">预约挂号</text>
+  </view>
+  
+  <!-- 门诊服务 -->
+  <view class="section" style="border-left: 8rpx solid {{themeColor}};">
+    <text class="section-title">门诊服务</text>
+    <view class="info-item">
+      <text class="label">预约医生：</text>
+      <picker
+        wx:if="{{doctors.length > 0}}"
+        range="{{doctors}}" 
+        range-key="name" 
+        bindchange="bindDoctorChange"
+        value="{{selectedDoctorIndex}}">
+        <view class="picker-container">
+          <text class="value">{{selectedDoctorName || '请选择医生'}}</text>
+          <text class="picker-arrow">▼</text>
+        </view>
+      </picker>
+      <view wx:else class="picker-container loading">
+        <text class="value">{{isLoadingDoctors ? '加载中...' : '暂无医生数据'}}</text>
+      </view>
+    </view>
+    <view class="info-item">
+      <text class="label">选择病种：</text>
+      <picker
+        range="{{diseases || []}}" 
+        range-key="name" 
+        bindchange="bindDiseaseChange"
+        value="{{selectedDiseaseIndex}}"
+        disabled="{{diseases.length === 0}}">
+        <view class="picker-container">
+          <text class="value">{{selectedDiseaseName || (diseases.length === 0 ? '暂无病种' : '请选择病种')}}</text>
+          <text class="picker-arrow">▼</text>
+        </view>
+      </picker>
+    </view>
+    <view class="info-item">
+      <text class="label">预约时间：</text>
+      <text class="value" wx:if="{{dateTime}}">{{dateTime}}</text>
+      <picker wx:else
+        mode="date" 
+        fields="day" 
+        bindchange="bindDateChange"
+      >
+        <view class="picker-container">
+          <text class="value">请选择日期</text>
+          <text class="picker-arrow">▼</text>
+        </view>
+      </picker>
+    </view>
+    <view class="info-item">
+      <text class="label">预约时段：</text>
+      <radio-group bindchange="bindTimeSlotChange">
+        <view class="time-slot-options">
+          <label class="radio-label {{morningSuspended ? 'disabled' : ''}}">
+            <radio value="上午" checked="{{timeSlot === '上午' && !morningSuspended}}" disabled="{{morningSuspended}}" />
+            <text class="{{morningSuspended ? 'suspended' : ''}}">
+              上午
+              <text wx:if="{{morningSuspended}}" class="suspended-tag">(停诊)</text>
+            </text>
+          </label>
+          <label class="radio-label {{afternoonSuspended ? 'disabled' : ''}}">
+            <radio value="下午" checked="{{timeSlot === '下午' && !afternoonSuspended}}" disabled="{{afternoonSuspended}}" />
+            <text class="{{afternoonSuspended ? 'suspended' : ''}}">
+              下午
+              <text wx:if="{{afternoonSuspended}}" class="suspended-tag">(停诊)</text>
+            </text>
+          </label>
+        </view>
+      </radio-group>
+    </view>
+  </view>
+  
+  <!-- 选择就诊人 -->
+  <view class="section" style="border-left: 8rpx solid {{themeColor}};">
+    <text class="section-title">选择就诊人</text>
+    <view class="form-item">
+      <label>选择就诊人：</label>
+      <picker 
+        range="{{patientOptions}}" 
+        value="{{selectedPatientIndex}}" 
+        bindchange="bindPatientChange"
+        disabled="{{patientOptions.length === 0}}"
+      >
+        <view class="picker-container">
+          <text class="value">{{patientOptions.length > 0 ? patientOptions[selectedPatientIndex] : '请添加就诊人'}}</text>
+          <text class="picker-arrow">▼</text>
+        </view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <label>预约手机号：</label>
+      <view class="phone-input-container">
+        <input 
+          type="number" 
+          placeholder="请输入就诊人手机号码" 
+          value="{{patient.phone}}" 
+          bindinput="bindPhoneInput" 
+          class="input" 
+        />
+        <button 
+          wx:if="{{!patient.phone}}" 
+          open-type="getPhoneNumber" 
+          bindgetphonenumber="getPhoneNumber" 
+          class="phone-button-overlay"
+        >获取手机号</button>
+      </view>
+    </view>
+    <view class="form-item">
+      <label>就诊人姓名：</label>
+      <input type="text" placeholder="请输入就诊人姓名" value="{{patient.name}}" bindinput="bindNameInput" class="input" />
+    </view>
+    <view class="form-item">
+      <label>就诊人性别：</label>
+      <radio-group bindchange="bindGenderChange">
+        <view class="gender-options">
+          <label class="radio-label">
+            <radio value="男" checked="{{patient.gender === '男'}}" />
+            <text>男</text>
+          </label>
+          <label class="radio-label">
+            <radio value="女" checked="{{patient.gender === '女'}}" />
+            <text>女</text>
+          </label>
+        </view>
+      </radio-group>
+    </view>
+    <view class="form-item">
+      <label>就诊人年龄：</label>
+      <input type="number" placeholder="请输入就诊人年龄" value="{{patient.age}}" bindinput="bindAgeInput" class="input" />
+    </view>
+  </view>
+  
+  <!-- 病情症状描述 -->
+  <view class="section" style="border-left: 8rpx solid {{themeColor}};">
+    <text class="section-title">病情症状描述</text>
+    <textarea placeholder="请输入" value="{{symptoms}}" bindinput="bindSymptomsInput" class="textarea" />
+  </view>
+  
+  <!-- 确认预约按钮 -->
+  <button class="submit-btn" style="background-color: {{themeColor}};" bindtap="submitAppointment">确认预约挂号</button>
+</view>

@@ -1,0 +1,90 @@
+/* privacySettings.wxss */
+
+/* 页面容器 */
+.page-container {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  padding-bottom: 20rpx;
+}
+
+/* 分组容器 */
+.section {
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 分组标题 */
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  padding: 30rpx 30rpx 20rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+/* 列表项 */
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+/* 列表项文本 */
+.list-item-text {
+  font-size: 30rpx;
+  color: #333;
+}
+
+/* 列表项描述 */
+.list-item-desc {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 5rpx;
+}
+
+/* 开关样式 */
+.switch {
+  transform: scale(0.8);
+}
+
+/* 箭头图标 */
+.arrow {
+  width: 24rpx;
+  height: 24rpx;
+  margin-left: 20rpx;
+}
+
+/* 最后一个列表项 */
+.list-item:last-child {
+  border-bottom: none;
+}
+
+/* 数据隐私部分 */
+.data-privacy {
+  margin-top: 20rpx;
+}
+
+/* 权限管理部分 */
+.permission-management {
+  margin-top: 20rpx;
+}
+
+/* 账号安全部分 */
+.account-security {
+  margin-top: 20rpx;
+}
+
+/* 删除账号按钮 */
+.delete-account-btn {
+  color: #ff4d4f !important;
+}
+
+/* 底部间距 */
+.bottom-spacing {
+  height: 40rpx;
+}

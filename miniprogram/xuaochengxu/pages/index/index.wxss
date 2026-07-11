@@ -1,0 +1,1028 @@
+/* index.wxss */
+/* 业务域名加载中 - 全屏加载动画 */
+.loading-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  z-index: 9999;
+}
+.loading-spinner {
+  width: 80rpx;
+  height: 80rpx;
+  border: 6rpx solid #f3f3f3;
+  border-top: 6rpx solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.loading-text {
+  margin-top: 30rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.container {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  padding-bottom: 60rpx;
+}
+
+/* 搜索框 */
+.search-box {
+  position: relative;
+  padding: 15rpx;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.search-input {
+  background-color: #f5f5f5;
+  border-radius: 30rpx;
+  padding: 20rpx 60rpx 20rpx 30rpx;
+  font-size: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
+  height: 80rpx;
+  border: 1rpx solid #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  background-color: #fff;
+  border-color: #007AFF;
+  box-shadow: 0 0 0 2rpx rgba(0, 122, 255, 0.1);
+}
+
+.search-icon {
+  position: absolute;
+  right: 40rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 32rpx;
+  color: #666;
+}
+
+/* 轮播图 */
+.swiper {
+  width: 100%;
+  height: 422rpx;
+  margin-bottom: 20rpx;
+}
+
+.swiper-img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 功能入口 - 新卡片式布局 */
+.function-cards {
+  display: flex;
+  padding: 20rpx;
+  gap: 20rpx;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+
+/* 左侧卡片组容器 */
+.function-cards-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+/* 左侧半高卡片 */
+.card-half {
+  flex: 1;
+  background: linear-gradient(135deg, #e6f2ff 0%, #d9efff 100%);
+  border-radius: 16rpx;
+  padding: 24rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 122, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 130rpx;
+  border: none;
+  line-height: 1;
+  margin: 0;
+}
+
+.card-half::after {
+  border: none;
+}
+
+/* 客服卡片样式 */
+.card-customer-service {
+  background: linear-gradient(135deg, #e6fffa 0%, #ccfff5 100%);
+  box-shadow: 0 4rpx 16rpx rgba(0, 200, 150, 0.1);
+}
+
+/* +号图标 */
+.card-plus-icon {
+  font-size: 56rpx;
+  font-weight: bold;
+  color: #007AFF;
+}
+
+/* 客服图标 */
+.card-cs-icon {
+  font-size: 48rpx;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.card-subtitle {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.card-icon-wrapper {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  flex-shrink: 0;
+}
+
+.card-icon-img {
+  width: 100rpx;
+  height: 100rpx;
+  border: none;
+  background-color: transparent;
+}
+
+.card-icon-text {
+  font-size: 48rpx;
+  font-weight: bold;
+}
+
+/* 右侧卡片容器 */
+.function-cards-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+/* 右侧小卡片 */
+.card-small {
+  flex: 1;
+  background: linear-gradient(135deg, #e6f2ff 0%, #d9efff 100%);
+  border-radius: 16rpx;
+  padding: 24rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 122, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 我的预约模块 */
+.card-my-appointment {
+  background: linear-gradient(135deg, #ecfcff 0%, #d6f8fe 100%);
+  box-shadow: 0 4rpx 16rpx rgba(0, 255, 255, 0.08);
+}
+
+/* 专家团队模块 */
+.card-expert-team {
+  background: linear-gradient(135deg, #fffaf3 0%, #fdf6ed 100%);
+  box-shadow: 0 4rpx 16rpx rgba(255, 200, 150, 0.08);
+}
+
+.card-content-small {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-text-small {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-title-small {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.card-subtitle-small {
+  font-size: 22rpx;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-icon-wrapper-small {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  margin-left: 16rpx;
+}
+
+.card-icon-img-small {
+  width: 80rpx;
+  height: 80rpx;
+  border: none;
+  background-color: transparent;
+}
+
+.card-icon-text-small {
+  font-size: 40rpx;
+}
+
+/* 通用部分样式 */
+.section {
+  background-color: #fff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.more {
+  font-size: 24rpx;
+  color: #007AFF;
+}
+
+/* 科室和专病门诊tab */
+.tab-container {
+  display: flex;
+  border-bottom: 1rpx solid #e0e0e0;
+  margin-bottom: 20rpx;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+  font-weight: 500;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab:active {
+  opacity: 0.8;
+}
+
+/* 专病门诊 */
+.disease-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20rpx;
+}
+
+.disease-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10rpx;
+}
+
+.disease-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 12rpx;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.disease-icon image {
+  width: 100%;
+  height: 100%;
+}
+
+.disease-text {
+  font-size: 26rpx;
+  font-weight: 500;
+  text-align: center;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* 科室 */
+.department-tab-container {
+  display: flex;
+  border-bottom: 1rpx solid #e0e0e0;
+  margin-bottom: 20rpx;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none; /* 隐藏滚动条 */
+  -ms-overflow-style: none; /* IE和Edge */
+}
+
+.department-tab-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari和Opera */
+}
+
+.department-tab {
+  padding: 20rpx 25rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+  margin-right: 10rpx;
+  border-radius: 8rpx;
+}
+
+.department-tab:active {
+  opacity: 0.8;
+}
+
+.department-tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2rpx;
+  background-color: #007AFF;
+  transition: width 0.3s ease;
+}
+
+.department-tab.active::after {
+  width: 80%;
+}
+
+.department-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20rpx;
+}
+
+.department-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.department-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 10rpx;
+}
+
+.department-icon image {
+  width: 100%;
+  height: 100%;
+}
+
+.department-text {
+  font-size: 24rpx;
+  text-align: center;
+}
+
+/* 医生推荐 */
+.doctor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.doctor-item {
+  display: flex;
+  gap: 20rpx;
+  padding: 15rpx;
+  background-color: #f9f9f9;
+  border-radius: 10rpx;
+}
+
+.doctor-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+
+.doctor-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+}
+
+.doctor-name {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.doctor-title {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.doctor-desc {
+  font-size: 22rpx;
+  color: #999;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 版权信息 */
+.copyright {
+  text-align: center;
+  font-size: 20rpx;
+  color: #999;
+  padding: 20rpx 0;
+  background-color: #fff;
+  margin-top: 30rpx;
+  margin-bottom: 60rpx;
+  border-top: 1rpx solid #f0f0f0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  letter-spacing: 0.5rpx;
+  line-height: 1.5;
+}
+
+/* 右侧悬浮按钮 */
+.floating-buttons {
+  position: fixed;
+  right: 20rpx;
+  bottom: 180rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+  z-index: 999;
+}
+
+.floating-button {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background-color: #007AFF;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 122, 255, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.floating-button:active {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+.floating-icon {
+  font-size: 32rpx;
+  margin-bottom: 2rpx;
+}
+
+.floating-text {
+  font-size: 14rpx;
+  font-weight: 500;
+}
+
+/* 客服按钮 */
+.floating-button.customer-service {
+  background-color: #52c41a;
+  border: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+
+.floating-button.customer-service::after {
+  border: none;
+}
+
+/* 电话按钮 */
+.floating-button.phone {
+  background-color: #007AFF;
+}
+
+/* 返回顶部按钮 */
+.floating-button.back-to-top {
+  background-color: #fa8c16;
+}
+
+/* 登录授权弹窗遮罩 */
+.login-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* 就诊人提示弹窗遮罩 */
+.patient-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+}
+
+/* 就诊人提示弹窗内容 */
+.patient-modal {
+  width: 80%;
+  max-width: 560rpx;
+  background-color: #fff;
+  border-radius: 24rpx;
+  padding: 48rpx 32rpx;
+  text-align: center;
+  animation: patientModalShow 0.3s ease;
+}
+
+@keyframes patientModalShow {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.patient-modal-icon {
+  font-size: 80rpx;
+  margin-bottom: 24rpx;
+}
+
+.patient-modal-title {
+  display: block;
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+
+.patient-modal-desc {
+  display: block;
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 40rpx;
+  line-height: 1.6;
+}
+
+.patient-modal-button {
+  width: 100%;
+  height: 88rpx;
+  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+  color: #fff;
+  border: none;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+
+.patient-modal-button:active {
+  opacity: 0.8;
+}
+
+/* 登录授权弹窗内容 */
+.login-modal {
+  width: 85%;
+  max-width: 600rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  overflow: hidden;
+  animation: modalShow 0.3s ease;
+}
+
+@keyframes modalShow {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 弹窗头部 */
+.login-modal-header {
+  padding: 40rpx 30rpx;
+  text-align: center;
+}
+
+.login-modal-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.login-modal-desc {
+  font-size: 26rpx;
+  color: #666;
+}
+
+/* 用户头像区域 */
+.login-modal-avatar {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  margin: 0 auto 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-modal-avatar-icon {
+  font-size: 80rpx;
+}
+
+/* 授权说明 */
+.login-modal-permission {
+  padding: 0 30rpx 30rpx;
+  text-align: center;
+}
+
+.login-modal-permission-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.login-modal-permission-desc {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 授权按钮 */
+.login-modal-button {
+  margin: 0 30rpx 30rpx;
+  height: 88rpx;
+  border-radius: 44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: 600;
+  border: none;
+  padding: 0;
+  transition: all 0.3s ease;
+  background: none;
+  background-color: transparent;
+}
+
+.login-modal-button::after {
+  border: none;
+  border-radius: 44rpx;
+}
+
+.login-modal-button:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+/* 未授权页面 - 全屏显示 */
+.auth-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 40rpx;
+}
+
+.auth-content {
+  width: 100%;
+  max-width: 600rpx;
+  background-color: #fff;
+  border-radius: 32rpx;
+  padding: 80rpx 50rpx;
+  text-align: center;
+  box-shadow: 0 20rpx 60rpx rgba(0, 0, 0, 0.2);
+  animation: authPageShow 0.4s ease;
+}
+
+@keyframes authPageShow {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(20rpx);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.auth-icon {
+  font-size: 140rpx;
+  margin-bottom: 40rpx;
+}
+
+.auth-title {
+  display: block;
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #d93026;
+  margin-bottom: 30rpx;
+  letter-spacing: 2rpx;
+}
+
+.auth-message {
+  display: block;
+  font-size: 30rpx;
+  color: #555;
+  margin-bottom: 16rpx;
+  line-height: 1.6;
+}
+
+.auth-tip {
+  display: block;
+  font-size: 26rpx;
+  color: #999;
+  margin-bottom: 50rpx;
+}
+
+.auth-button {
+  width: 100%;
+  height: 96rpx;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border-radius: 48rpx;
+  font-size: 34rpx;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8rpx 24rpx rgba(102, 126, 234, 0.4);
+}
+
+.auth-button:active {
+  opacity: 0.85;
+  transform: scale(0.98);
+  box-shadow: 0 4rpx 12rpx rgba(102, 126, 234, 0.3);
+}
+
+.auth-footer {
+  display: block;
+  font-size: 22rpx;
+  color: #ccc;
+  margin-top: 40rpx;
+}
+
+/* 通知弹窗遮罩 */
+.notification-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1002;
+  padding: 40rpx;
+}
+
+/* 通知弹窗内容 */
+.notification-modal {
+  width: 100%;
+  max-width: 600rpx;
+  max-height: 80vh;
+  background-color: #fff;
+  border-radius: 24rpx;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: notificationModalShow 0.3s ease;
+  box-shadow: 0 20rpx 60rpx rgba(0, 0, 0, 0.3);
+}
+
+@keyframes notificationModalShow {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20rpx);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* 通知弹窗头部 */
+.notification-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+}
+
+.notification-modal-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  flex: 1;
+}
+
+.notification-modal-close {
+  font-size: 48rpx;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  padding: 10rpx;
+  margin: -10rpx -10rpx -10rpx 10rpx;
+}
+
+/* 通知弹窗内容 */
+.notification-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 30rpx;
+}
+
+/* 通知内容 */
+.notification-content {
+  font-size: 28rpx;
+  line-height: 1.8;
+  color: #333;
+  word-break: break-word;
+}
+
+/* 附件列表 */
+.notification-attachments {
+  margin-top: 30rpx;
+  padding-top: 30rpx;
+  border-top: 2rpx solid #f0f0f0;
+}
+
+.attachments-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.attachments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.attachments-list .attachment-item {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  padding: 20rpx;
+  background-color: #f5f7fa;
+  border-radius: 12rpx;
+  transition: all 0.3s ease;
+}
+
+.attachments-list .attachment-item:active {
+  background-color: #e9ecef;
+}
+
+.attachments-list .attachment-icon {
+  font-size: 40rpx;
+}
+
+.attachments-list .attachment-name {
+  font-size: 26rpx;
+  color: #333;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 下载按钮 */
+.notification-download {
+  margin-top: 30rpx;
+  padding-top: 30rpx;
+  border-top: 2rpx solid #f0f0f0;
+}
+
+.download-button {
+  width: 100%;
+  height: 88rpx;
+  background: linear-gradient(135deg, #52c41a 0%, #73d13d 100%);
+  color: #fff;
+  border: none;
+  border-radius: 44rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 8rpx 20rpx rgba(82, 196, 26, 0.3);
+  transition: all 0.3s ease;
+}
+
+.download-button:active {
+  transform: scale(0.98);
+  box-shadow: 0 4rpx 12rpx rgba(82, 196, 26, 0.2);
+}
+
+.download-button::after {
+  border: none;
+}
+
+/* 通知弹窗底部 */
+.notification-modal-footer {
+  padding: 20rpx 30rpx 30rpx;
+  border-top: 2rpx solid #f0f0f0;
+}
+
+.notification-close-btn {
+  width: 100%;
+  height: 80rpx;
+  background-color: #f5f7fa;
+  color: #666;
+  border: none;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.notification-close-btn:active {
+  background-color: #e9ecef;
+}
+
+.notification-close-btn::after {
+  border: none;
+}

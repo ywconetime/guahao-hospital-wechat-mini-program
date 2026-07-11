@@ -1,0 +1,77 @@
+<!-- doctorDetail.wxml -->
+<view class="container">
+  <!-- 医生基本信息 -->
+  <view class="doctor-info">
+    <image src="{{doctor.avatar}}" mode="aspectFill" class="doctor-avatar" />
+    <view class="doctor-basic">
+      <text class="doctor-name">{{doctor.name}}</text>
+      <text class="doctor-title">{{doctor.title}}</text>
+      <text class="doctor-position">{{doctor.position}}</text>
+    </view>
+  </view>
+  
+  <!-- 医生介绍 -->
+  <view class="section">
+    <text class="section-title">【擅长】</text>
+    <text class="doctor-desc">{{doctor.desc}}</text>
+  </view>
+  
+  <!-- 标签切换 -->
+  <view class="tab-bar">
+    <view class="tab-item active" style="color: {{themeColor}}; border-bottom: 2rpx solid {{themeColor}};">挂号</view>
+    <view class="tab-item">介绍</view>
+  </view>
+  
+  <!-- 排班信息 -->
+  <view class="schedule-section">
+    <view wx:for="{{schedules}}" wx:key="index" class="schedule-group">
+      <!-- 日期标题 -->
+      <view class="schedule-date-header">
+        <text class="date">{{item.date}}</text>
+        <text class="week">{{item.week}}</text>
+      </view>
+      
+      <!-- 上午时段 -->
+      <view class="schedule-row">
+        <view class="time-badge morning">上午</view>
+        <view class="slot-info">
+          <text class="slot-label">号源</text>
+          <text wx:if="{{!item.timeSlots[0].isSuspended}}" class="slot-count" style="color: {{themeColor}};">{{item.timeSlots[0].count > 0 ? item.timeSlots[0].count + ' 个' : '已满'}}</text>
+          <text wx:else class="slot-suspended">停诊</text>
+        </view>
+        <button 
+          class="slot-btn {{item.timeSlots[0].isSuspended || item.timeSlots[0].count <= 0 ? 'disabled' : ''}}" 
+          style="background-color: {{item.timeSlots[0].isSuspended || item.timeSlots[0].count <= 0 ? '#ccc' : themeColor}};" 
+          bindtap="goToAppointmentForm" 
+          data-doctor-id="{{doctor.id}}" 
+          data-date="{{item.date}}"
+          data-time-slot="上午"
+          disabled="{{item.timeSlots[0].isSuspended || item.timeSlots[0].count <= 0}}"
+        >
+          {{item.timeSlots[0].isSuspended ? '停诊' : (item.timeSlots[0].count <= 0 ? '已满' : '预约')}}
+        </button>
+      </view>
+      
+      <!-- 下午时段 -->
+      <view class="schedule-row">
+        <view class="time-badge afternoon">下午</view>
+        <view class="slot-info">
+          <text class="slot-label">号源</text>
+          <text wx:if="{{!item.timeSlots[1].isSuspended}}" class="slot-count" style="color: {{themeColor}};">{{item.timeSlots[1].count > 0 ? item.timeSlots[1].count + ' 个' : '已满'}}</text>
+          <text wx:else class="slot-suspended">停诊</text>
+        </view>
+        <button 
+          class="slot-btn {{item.timeSlots[1].isSuspended || item.timeSlots[1].count <= 0 ? 'disabled' : ''}}" 
+          style="background-color: {{item.timeSlots[1].isSuspended || item.timeSlots[1].count <= 0 ? '#ccc' : themeColor}};" 
+          bindtap="goToAppointmentForm" 
+          data-doctor-id="{{doctor.id}}" 
+          data-date="{{item.date}}"
+          data-time-slot="下午"
+          disabled="{{item.timeSlots[1].isSuspended || item.timeSlots[1].count <= 0}}"
+        >
+          {{item.timeSlots[1].isSuspended ? '停诊' : (item.timeSlots[1].count <= 0 ? '已满' : '预约')}}
+        </button>
+      </view>
+    </view>
+  </view>
+</view>

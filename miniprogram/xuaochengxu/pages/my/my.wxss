@@ -1,0 +1,227 @@
+/* my.wxss - 恢复版本 */
+.container {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  padding-bottom: 60rpx;
+}
+
+/* 用户信息 */
+.user-info {
+  display: flex;
+  align-items: center;
+  padding: 30rpx;
+  background-color: #007AFF;
+  color: #fff;
+  gap: 20rpx;
+}
+
+.user-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  border: 3rpx solid rgba(255, 255, 255, 0.5);
+}
+
+.avatar-container {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  border: 3rpx solid rgba(255, 255, 255, 0.5);
+  background: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-icon {
+  font-size: 50rpx;
+}
+
+.user-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+}
+
+.user-name {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.user-phone {
+  font-size: 24rpx;
+  opacity: 0.8;
+}
+
+/* 功能列表 */
+.function-list {
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+
+.function-item {
+  display: flex;
+  align-items: center;
+  padding: 25rpx 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.function-icon {
+  width: 50rpx;
+  height: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+}
+
+.icon {
+  font-size: 32rpx;
+}
+
+.function-text {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* 登录按钮 */
+.login-btn {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  border: 1rpx solid rgba(255, 255, 255, 0.5);
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  padding: 10rpx 20rpx;
+  margin-left: 20rpx;
+}
+
+/* 退出登录按钮 */
+.logout-btn {
+  margin: 40rpx 30rpx;
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1rpx solid #e0e0e0;
+  border-radius: 10rpx;
+  font-size: 32rpx;
+  padding: 20rpx;
+}
+
+/* 版权信息 */
+.copyright {
+  text-align: center;
+  font-size: 20rpx;
+  color: #999;
+  padding: 20rpx 0;
+  background-color: #fff;
+  margin-top: 30rpx;
+  margin-bottom: 60rpx;
+  border-top: 1rpx solid #f0f0f0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  letter-spacing: 0.5rpx;
+  line-height: 1.5;
+}
+
+/* 登录授权弹窗遮罩 */
+.login-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* 登录授权弹窗内容 */
+.login-modal {
+  width: 85%;
+  max-width: 600rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  overflow: hidden;
+  animation: modalShow 0.3s ease;
+}
+
+@keyframes modalShow {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 弹窗头部 */
+.login-modal-header {
+  padding: 40rpx 30rpx;
+  text-align: center;
+}
+
+.login-modal-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.login-modal-desc {
+  font-size: 26rpx;
+  color: #666;
+}
+
+/* 用户头像区域 */
+.login-modal-avatar {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  margin: 0 auto 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-modal-avatar-icon {
+  font-size: 80rpx;
+}
+
+/* 授权说明 */
+.login-modal-permission {
+  padding: 0 30rpx 30rpx;
+  text-align: center;
+}
+
+.login-modal-permission-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.login-modal-permission-desc {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 授权按钮 */
+.login-modal-button {
+  margin: 0 30rpx 30rpx;
+  height: 88rpx;
+  border-radius: 44rpx;
+  background: linear-gradient(135deg, #007AFF 0%, #0056b3 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: 600;
+  box-shadow: 0 8rpx 24rpx rgba(0, 122, 255, 0.3);
+  transition: all 0.3s ease;
+}

@@ -1,0 +1,74 @@
+<!--search.wxml-->
+<view class="container">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <view class="search-input-container">
+      <icon type="search" size="16" color="#999" class="search-icon" />
+      <input type="text" placeholder="请输入医生、病种等关键词" class="search-input" value="{{keyword}}" bindinput="onInput" bindconfirm="onSearch" />
+      <text class="clear-btn" wx:if="{{keyword}}" bindtap="clearKeyword">×</text>
+    </view>
+    <text class="cancel-btn" bindtap="onCancel">取消</text>
+  </view>
+  
+  <!-- 搜索结果 -->
+  <view class="search-results" wx:if="{{showResults}}">
+    <!-- 医生搜索结果 -->
+    <view class="result-section" wx:if="{{doctors.length > 0}}">
+      <text class="section-title">医生</text>
+      <view class="doctor-list">
+        <view wx:for="{{doctors}}" wx:key="id" class="doctor-item" bindtap="navigateToDoctorDetail" data-id="{{item.id}}">
+          <image src="{{item.avatar}}" mode="aspectFill" class="doctor-avatar" />
+          <view class="doctor-info">
+            <text class="doctor-name">{{item.name}}</text>
+            <text class="doctor-title">{{item.title}} | {{item.department}}</text>
+            <text class="doctor-desc">{{item.specialty}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 病种搜索结果 -->
+    <view class="result-section" wx:if="{{diseases.length > 0}}">
+      <text class="section-title">病种</text>
+      <view class="disease-list">
+        <view wx:for="{{diseases}}" wx:key="id" class="disease-item" bindtap="navigateToAppointment" data-disease="{{item.name}}">
+          <view class="disease-icon">
+            <image src="{{item.icon}}" mode="aspectFill" />
+          </view>
+          <text class="disease-text">{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 无结果提示 -->
+    <view class="no-results" wx:if="{{doctors.length === 0 && diseases.length === 0}}">
+      <image src="/images/no-results.png" mode="aspectFill" class="no-results-icon" />
+      <text class="no-results-text">未找到相关结果</text>
+      <text class="no-results-desc">请尝试其他关键词</text>
+    </view>
+  </view>
+  
+  <!-- 搜索历史 -->
+  <view class="search-history" wx:if="{{!showResults && history.length > 0}}">
+    <view class="history-header">
+      <text class="history-title">搜索历史</text>
+      <text class="clear-history" bindtap="clearHistory">清空</text>
+    </view>
+    <view class="history-tags">
+      <view wx:for="{{history}}" wx:key="*this" class="history-tag" bindtap="searchHistory" data-keyword="{{item}}">{{item}}</view>
+    </view>
+  </view>
+  
+  <!-- 热门搜索 -->
+  <view class="hot-search" wx:if="{{!showResults}}">
+    <text class="hot-title">热门搜索</text>
+    <view class="hot-tags">
+      <view wx:for="{{hotKeywords}}" wx:key="*this" class="hot-tag" bindtap="searchHot" data-keyword="{{item}}">{{item}}</view>
+    </view>
+  </view>
+  
+  <!-- 版权信息 -->
+  <view class="copyright">
+    <text>{{copyright}}</text>
+  </view>
+</view>

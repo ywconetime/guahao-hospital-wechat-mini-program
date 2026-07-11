@@ -1,0 +1,10 @@
+<!-- custom-tab-bar/index.wxml -->
+<view class="tab-bar">
+  <view wx:for="{{list}}" wx:key="index" class="tab-bar-item" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
+    <view class="icon-wrapper">
+      <image wx:if="{{item.pagePath !== '/pages/customer_service/customer_service'}}" class="icon" src="{{selected === index ? item.selectedIconPath : item.iconPath}}" />
+      <text wx:else class="customer-service-icon">💬</text>
+    </view>
+    <text class="text" style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</text>
+  </view>
+</view>
