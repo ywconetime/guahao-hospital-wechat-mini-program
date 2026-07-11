@@ -3,6 +3,22 @@
 
 基于原生微信小程序+PHP后端开发的医疗自助挂号系统，支持在线预约挂号、专家团队查看、就诊信息管理。
 
+
+案例演示：
+微信小程序后台演示：https://yu.gd7.cn/admin/login.php
+测试账号：admin
+测试密码：admin
+
+<img width="414" height="780" alt="image" src="https://github.com/user-attachments/assets/e760f636-f76b-4fc8-abeb-bf0b9ae2173a" />
+<img width="414" height="780" alt="image" src="https://github.com/user-attachments/assets/876564f1-4254-40be-a358-5f897d5572d2" />
+<img width="414" height="780" alt="image" src="https://github.com/user-attachments/assets/f76c656d-de29-45fa-9274-fd04e618a9a2" />
+<img width="414" height="780" alt="image" src="https://github.com/user-attachments/assets/aeecc44c-fbec-4e18-8172-de41cda756c8" />
+<img width="414" height="780" alt="image" src="https://github.com/user-attachments/assets/9c68a70a-3df9-420f-9534-3c83395c0dfd" />
+<img width="414" height="780" alt="image" src="https://github.com/user-attachments/assets/e486f02e-ee59-4992-baf6-3e71db3fa76c" />
+<img width="414" height="780" alt="image" src="https://github.com/user-attachments/assets/da3ba3ee-0974-42db-a6b8-1b79961623c7" />
+<img width="414" height="780" alt="image" src="https://github.com/user-attachments/assets/3c9dc967-0598-4944-a4b7-3085e3d9e2fc" />
+
+
 医疗微信小程序自助挂号系统 - 项目开发与部署文档
 
 一、项目概述
@@ -285,26 +301,3 @@ location / {
 2. 监控日志：查看 data/log/ 下的错误日志
 3. 安全加固：修改默认后台路径、使用强密码
 4. 性能优化：开启 PHP OpCache、启用 Nginx 缓存
-
-案例演示：
-微信小程序后台演示：https://yu.gd7.cn/admin/login.php
-测试账号：admin
-测试密码：admin
-
-<img width="414" height="780" alt="image" src="https://github.com/user-attachments/assets/e760f636-f76b-4fc8-abeb-bf0b9ae2173a" />
-<img width="414" height="780" alt="image" src="https://github.com/user-attachments/assets/876564f1-4254-40be-a358-5f897d5572d2" />
-<img width="414" height="780" alt="image" src="https://github.com/user-attachments/assets/f76c656d-de29-45fa-9274-fd04e618a9a2" />
-<img width="414" height="780" alt="image" src="https://github.com/user-attachments/assets/aeecc44c-fbec-4e18-8172-de41cda756c8" />
-<img width="414" height="780" alt="image" src="https://github.com/user-attachments/assets/9c68a70a-3df9-420f-9534-3c83395c0dfd" />
-<img width="414" height="780" alt="image" src="https://github.com/user-attachments/assets/e486f02e-ee59-4992-baf6-3e71db3fa76c" />
-<img width="414" height="780" alt="image" src="https://github.com/user-attachments/assets/da3ba3ee-0974-42db-a6b8-1b79961623c7" />
-<img width="414" height="780" alt="image" src="https://github.com/user-attachments/assets/3c9dc967-0598-4944-a4b7-3085e3d9e2fc" />
-
-
-
-
-
-
-
-
-
