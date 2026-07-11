@@ -29,74 +29,72 @@
 
 
 guahao-hospital-wechat-mini-program/
-├── backend/             # PHP后端服务
-│   ├── admin/           # PC管理后台
-│   ├── api/             # 小程序请求接口
-│   ├── config/          # 数据库、全局配置
-│   ├── controllers/     # 业务控制器
-│   ├── models/          # 数据库模型
-│   ├── utils/           # 通用工具函数
-│   ├── uploads/         # 图片、文件上传目录
-│   ├── data/            # 日志、缓存
-│   ├── error/           # 错误页面
-│   ├── .htaccess        # Apache伪静态
-│   └── nginx.htaccess   # Nginx伪静态
-├── miniprogram/         # 微信小程序前端源码
-├── database/            # 数据库备份文件
-│   └── guahaotest.sql
-├── assets/              # 项目打包成品压缩包
-│   └── 2026医疗微信小程序自助挂号.zip
-├── docs/                # 项目文档、部署说明
+├── backend/ # PHP 后端服务
+│ ├── admin/ # PC 管理后台
+│ ├── api/ # 小程序请求接口
+│ ├── config/ # 数据库、全局配置
+│ ├── controllers/ # 业务控制器
+│ ├── models/ # 数据库模型
+│ ├── utils/ # 通用工具函数
+│ ├── uploads/ # 图片、文件上传目录
+│ ├── data/ # 日志、缓存
+│ ├── error/ # 错误页面
+│ ├── .htaccess # Apache 伪静态
+│ └── nginx.htaccess # Nginx 伪静态
+├── miniprogram/ # 微信小程序前端源码
+├── database/ # 数据库备份文件
+│ └── guahaotest.sql
+├── assets/ # 项目打包成品压缩包
+│ └── 2026 医疗微信小程序自助挂号.zip
+├── docs/ # 项目文档、部署说明
 ├── .gitignore
 ├── LICENSE
 └── README.md
 
+
 2. 小程序前端结构 (xuaochengxu/)
-
-
 miniprogram/
-├── pages/               # 业务页面
-│   ├── index/           # 首页
-│   ├── appointment/     # 预约挂号
-│   ├── appointmentForm/ # 预约表单
-│   ├── appointmentList/ # 我的预约
-│   ├── appointmentDetail/ # 预约详情
-│   ├── doctor/          # 专家团队
-│   ├── doctorDetail/    # 专家详情
-│   ├── my/              # 个人中心
-│   ├── patient/         # 就诊人管理
-│   ├── patientForm/     # 添加就诊人
-│   ├── search/          # 搜索
-│   ├── notification/    # 消息通知
-│   ├── settings/        # 设置页
-│   ├── personalInfo/    # 个人信息
-│   ├── notificationSettings/ # 通知设置
-│   ├── privacySettings/ # 隐私设置
-│   └── webview/         # 网页内嵌
-├── components/          # 自定义公共组件
-│   └── custom-tab-bar/  # 自定义底部导航
-├── images/              # 图片静态资源
+├── pages/ # 业务页面
+│ ├── index/ # 首页
+│ ├── appointment/ # 预约挂号
+│ ├── appointmentForm/ # 预约表单
+│ ├── appointmentList/ # 我的预约
+│ ├── appointmentDetail/ # 预约详情
+│ ├── doctor/ # 专家团队
+│ ├── doctorDetail/ # 专家详情
+│ ├── my/ # 个人中心
+│ ├── patient/ # 就诊人管理
+│ ├── patientForm/ # 添加就诊人
+│ ├── search/ # 搜索
+│ ├── notification/ # 消息通知
+│ ├── settings/ # 设置页
+│ ├── personalInfo/ # 个人信息
+│ ├── notificationSettings/# 通知设置
+│ ├── privacySettings/ # 隐私设置
+│ └── webview/ # 网页内嵌
+├── components/ # 自定义公共组件
+│ └── custom-tab-bar/ # 自定义底部导航
+├── images/ # 图片静态资源
 ├── app.js
 ├── app.json
 ├── app.wxss
 ├── project.config.json
 └── sitemap.json
 
+
 3. 后端结构（PHP）
-
-
 微信小程序后台源码/
 backend/
-├── admin/        # PC管理后台
-├── api/          # 小程序接口
-├── config/       # 数据库、应用配置
-├── controllers/  # 业务逻辑控制器
-├── models/       # 数据库操作模型
-├── utils/        # 工具类
-├── uploads/      # 文件上传
-├── data/         # 缓存、日志
-├── error/        # 错误页面
-├── miniprogram/  # 小程序专属后台逻辑
+├── admin/ # PC 管理后台
+├── api/ # 小程序接口
+├── config/ # 数据库、应用配置
+├── controllers/ # 业务逻辑控制器
+├── models/ # 数据库操作模型
+├── utils/ # 工具类
+├── uploads/ # 文件上传
+├── data/ # 缓存、日志
+├── error/ # 错误页面
+├── miniprogram/ # 小程序专属后台逻辑
 ├── .htaccess
 └── nginx.htaccess
 
