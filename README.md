@@ -301,3 +301,16 @@ location / {
 2. 监控日志：查看 data/log/ 下的错误日志
 3. 安全加固：修改默认后台路径、使用强密码
 4. 性能优化：开启 PHP OpCache、启用 Nginx 缓存
+
+## Legal Disclaimer 法律免责声明
+### English
+1. This medical appointment mini-program system is only for open-source technical learning and reference, not for commercial operation without complete compliance qualifications.
+2. Any individual or enterprise deploying this system for business must independently complete all legal formalities including medical institution qualification filing, network filing and personal privacy protection in accordance with national laws such as the Personal Information Protection Law.
+3. If any user modifies the source code to carry out illegal acts such as unlicensed medical practice, false diagnosis, fraud of patient fees and illegal leakage of patient privacy, all legal liabilities, administrative penalties and criminal liabilities shall be borne solely by the user. The original author ywconetime shall not bear any joint liability.
+4. This project is open source under Apache-2.0 License, the license contains complete warranty and liability disclaimer clauses, the author shall not be liable for any disputes or economic losses arising from the use of the code.
+
+### 中文
+1. 本医疗挂号小程序系统仅用于开源技术学习参考，不允许无完整合规资质直接商用运营。
+2. 任何个人、企业商用部署本系统，必须自行依据《个人信息保护法》等国家法规完成医疗机构资质备案、网络备案、患者隐私保护全部法定手续。
+3. 若使用者私自修改源码用于无证行医、虚假诊疗、骗取患者费用、非法泄露患者隐私等违法行为，全部法律责任、行政处罚、刑事责任均由使用者独立承担，原作者 ywconetime 不承担任何连带责任。
+4. 本项目遵循 Apache-2.0 开源许可证，许可证自带完整无担保、无追责免责条款，原作者不对代码使用产生的任何纠纷、经济损失承担责任。
