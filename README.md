@@ -3,6 +3,9 @@
 
 基于原生微信小程序+PHP后端开发的医疗自助挂号系统，支持在线预约挂号、专家团队查看、就诊信息管理。
 
+👇👇👇微信小程序前端演示：[请复制下面的链接去浏览器访问就可以打开微信小程序了] 请复制下面 👇👇👇
+
+👉👉👉 weixin://dl/business/?appid=wxfc6d94434f290940&path=pages/index/index&env_version=release
 
 案例演示：
 微信小程序后台演示：https://yu.gd7.cn/admin/login.php
